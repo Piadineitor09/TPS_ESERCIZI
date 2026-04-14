@@ -12,11 +12,13 @@
             --text-main: #d1d5db;
             --text-bright: #ffffff;
             
-            /* Colori tematici (versione desaturata per le card) */
+            /* Colori tematici per i badge e i bordi */
             --color-hardware: #e74c3c;
             --color-gamedev: #9b59b6;
-            --color-networking: #f39c12;
+            --color-networking: #3498db;
             --color-sysadmin: #2ecc71;
+            --color-mesh: #1abc9c;
+            --color-tinkering: #f39c12;
         }
 
         * {
@@ -39,26 +41,28 @@
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--text-bright);
             letter-spacing: -1px;
+            margin-bottom: 5px;
         }
 
         header p {
             color: #9ca3af;
+            font-size: 1.1rem;
             font-weight: 300;
         }
 
-        /* Griglia Responsiva */
+        /* --- LAYOUT A GRIGLIA --- */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Card Tematizzata */
+        /* --- STILE DELLE CARD --- */
         .project-card {
             background-color: var(--bg-card);
             border-radius: 16px;
@@ -70,35 +74,37 @@
             position: relative;
         }
 
-        /* Effetto hover richiesto: ingrandimento e ombra accentuata */
         .project-card:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* Sfumatura di colore specifica per ogni card */
+        /* Bordi e sfumature dinamiche in base alla categoria */
         .card-hardware { border-bottom: 4px solid var(--color-hardware); }
         .card-gamedev  { border-bottom: 4px solid var(--color-gamedev); }
         .card-networking { border-bottom: 4px solid var(--color-networking); }
         .card-sysadmin { border-bottom: 4px solid var(--color-sysadmin); }
+        .card-mesh { border-bottom: 4px solid var(--color-mesh); }
+        .card-tinkering { border-bottom: 4px solid var(--color-tinkering); }
 
-        /* Background color leggero per "richiamare" il tema senza stancare l'occhio */
         .card-hardware:hover { background-color: rgba(231, 76, 60, 0.03); }
         .card-gamedev:hover  { background-color: rgba(155, 89, 182, 0.03); }
-        .card-networking:hover { background-color: rgba(243, 156, 18, 0.03); }
+        .card-networking:hover { background-color: rgba(52, 152, 219, 0.03); }
         .card-sysadmin:hover { background-color: rgba(46, 204, 113, 0.03); }
+        .card-mesh:hover { background-color: rgba(26, 188, 156, 0.03); }
+        .card-tinkering:hover { background-color: rgba(243, 156, 18, 0.03); }
 
         .project-image {
             width: 100%;
-            height: 180px;
+            height: 190px;
             object-fit: cover;
-            object-position: center; /* Assicura che l'immagine sia centrata se ritagliata */
+            object-position: center;
             opacity: 0.95;
             transition: opacity 0.3s ease;
         }
 
         .project-card:hover .project-image {
-            opacity: 1; /* Rende l'immagine più vivida all'hover */
+            opacity: 1;
         }
 
         .project-content {
@@ -108,7 +114,7 @@
             flex-grow: 1;
         }
 
-        /* Badge Categoria */
+        /* --- STILE BADGE --- */
         .badge {
             display: inline-block;
             align-self: flex-start;
@@ -125,20 +131,23 @@
         .bg-gamedev { background-color: var(--color-gamedev); }
         .bg-networking { background-color: var(--color-networking); }
         .bg-sysadmin { background-color: var(--color-sysadmin); }
+        .bg-mesh { background-color: var(--color-mesh); }
+        .bg-tinkering { background-color: var(--color-tinkering); }
 
         .project-card h3 {
             color: var(--text-bright);
             margin-bottom: 10px;
+            font-size: 1.3rem;
         }
 
         .project-card p {
             font-size: 0.9rem;
             color: #9ca3af;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             flex-grow: 1;
         }
 
-        /* Pulsante Scopri di più */
+        /* --- PULSANTE --- */
         .btn-more {
             display: block;
             width: 100%;
@@ -159,13 +168,13 @@
 
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             padding: 20px;
             color: #6b7280;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
 
-        /* Media Query per Mobile */
+        /* Responsive */
         @media (max-width: 768px) {
             .portfolio-grid {
                 grid-template-columns: 1fr;
@@ -177,48 +186,68 @@
 
     <header>
         <h1>Portfolio Progetti</h1>
-        <p>Sviluppo Software e Infrastruttura IT</p>
+        <p>Informatica, Sviluppo Software e Hardware</p>
     </header>
 
     <section>
         <div class="portfolio-grid">
             
             <article class="project-card card-hardware">
-                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/arduino.webp?raw=true" class="project-image" alt="Arduino">
+                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/arduino.webp?raw=true" class="project-image" alt="Arduino Setup">
                 <div class="project-content">
                     <span class="badge bg-hardware">Hardware</span>
                     <h3>Arduino Parking Assistant</h3>
-                    <p>Sensori a ultrasuoni e LED tricolore per un sistema di assistenza al parcheggio programmato in C++.</p>
+                    <p>Sensori a ultrasuoni e feedback visivo tramite LED tricolore per un sistema di assistenza al parcheggio programmato in C++.</p>
                     <a href="#" class="btn-more">Scopri di più</a>
                 </div>
             </article>
 
             <article class="project-card card-gamedev">
-                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/shattered-pixel-dungeon.png?raw=true" class="project-image" alt="Game Dev">
+                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/shattered-pixel-dungeon.png?raw=true" class="project-image" alt="Pixel Dungeon">
                 <div class="project-content">
                     <span class="badge bg-gamedev">Game Dev</span>
                     <h3>Kintsugi Pixel Dungeon</h3>
-                    <p>Fork open-source focalizzato sul bilanciamento di gioco e personalizzazione estetica su base Java.</p>
+                    <p>Fork open-source focalizzato sul ribilanciamento delle meccaniche di gioco e personalizzazione estetica su base Java.</p>
                     <a href="#" class="btn-more">Scopri di più</a>
                 </div>
             </article>
 
             <article class="project-card card-networking">
-                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/install-shader-minecraft-with-optifine-1200x675.jpg?raw=true" class="project-image" alt="Networking">
+                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/install-shader-minecraft-with-optifine-1200x675.jpg?raw=true" class="project-image" alt="Minecraft Server">
                 <div class="project-content">
-                    <span class="badge bg-networking">Networking</span>
-                    <h3>GeyserMC Server</h3>
-                    <p>Implementazione di un bridge per permettere il cross-play tra versioni Java e Bedrock Edition.</p>
+                    <span class="badge bg-networking">Server Admin</span>
+                    <h3>GeyserMC Bridge</h3>
+                    <p>Implementazione di un bridge cross-play per permettere la connessione simultanea e fluida tra client Java e Bedrock Edition.</p>
                     <a href="#" class="btn-more">Scopri di più</a>
                 </div>
             </article>
 
             <article class="project-card card-sysadmin">
-                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/Screenshot_20260414_231748.png?raw=true" class="project-image" alt="Linux">
+                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/Screenshot_20260414_231748.png?raw=true" class="project-image" alt="CachyOS Desktop">
                 <div class="project-content">
                     <span class="badge bg-sysadmin">SysAdmin</span>
-                    <h3>CachyOS Setup</h3>
-                    <p>Workstation Linux con Btrfs, Snapper per il backup e Tailscale per il networking sicuro.</p>
+                    <h3>CachyOS Environment</h3>
+                    <p>Workstation Linux con ambiente KDE Plasma. Ottimizzata con filesystem Btrfs e snapshot automatici per la sicurezza dei dati.</p>
+                    <a href="#" class="btn-more">Scopri di più</a>
+                </div>
+            </article>
+
+            <article class="project-card card-mesh">
+                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/Screenshot_2026-04-14-23-35-29-13_84d3000e3f4017145260f7618db1d683.jpg?raw=true" class="project-image" alt="Tailscale Network">
+                <div class="project-content">
+                    <span class="badge bg-mesh">Networking</span>
+                    <h3>Tailscale Mesh VPN</h3>
+                    <p>Configurazione di una rete privata per l'accesso remoto sicuro ai dispositivi locali, con implementazione di un exit node.</p>
+                    <a href="#" class="btn-more">Scopri di più</a>
+                </div>
+            </article>
+
+            <article class="project-card card-tinkering">
+                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/e4d74d323b759f4054494884b018411a9dd2c8a2/IMG20260414234004.heic?raw=true" class="project-image" alt="Phone Repair">
+                <div class="project-content">
+                    <span class="badge bg-tinkering">Tinkering</span>
+                    <h3>Device Repair</h3>
+                    <p>Diagnostica hardware, smontaggio e riparazione di smartphone obsoleti per il recupero dei componenti e test di funzionamento.</p>
                     <a href="#" class="btn-more">Scopri di più</a>
                 </div>
             </article>
