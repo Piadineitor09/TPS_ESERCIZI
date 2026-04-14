@@ -92,7 +92,13 @@
             width: 100%;
             height: 180px;
             object-fit: cover;
-            opacity: 0.9;
+            object-position: center; /* Assicura che l'immagine sia centrata se ritagliata */
+            opacity: 0.95;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-image {
+            opacity: 1; /* Rende l'immagine più vivida all'hover */
         }
 
         .project-content {
@@ -178,7 +184,7 @@
         <div class="portfolio-grid">
             
             <article class="project-card card-hardware">
-                <img src="https://picsum.photos/seed/arduino/400/250" class="project-image" alt="Arduino">
+                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/arduino.webp?raw=true" class="project-image" alt="Arduino">
                 <div class="project-content">
                     <span class="badge bg-hardware">Hardware</span>
                     <h3>Arduino Parking Assistant</h3>
@@ -188,7 +194,7 @@
             </article>
 
             <article class="project-card card-gamedev">
-                <img src="https://picsum.photos/seed/dungeon/400/250" class="project-image" alt="Game Dev">
+                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/shattered-pixel-dungeon.png?raw=true" class="project-image" alt="Game Dev">
                 <div class="project-content">
                     <span class="badge bg-gamedev">Game Dev</span>
                     <h3>Kintsugi Pixel Dungeon</h3>
@@ -198,7 +204,7 @@
             </article>
 
             <article class="project-card card-networking">
-                <img src="https://picsum.photos/seed/server/400/250" class="project-image" alt="Networking">
+                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/install-shader-minecraft-with-optifine-1200x675.jpg?raw=true" class="project-image" alt="Networking">
                 <div class="project-content">
                     <span class="badge bg-networking">Networking</span>
                     <h3>GeyserMC Server</h3>
@@ -208,7 +214,7 @@
             </article>
 
             <article class="project-card card-sysadmin">
-                <img src="https://picsum.photos/seed/linux/400/250" class="project-image" alt="Linux">
+                <img src="https://github.com/Piadineitor09/TPS_ESERCIZI/blob/main/Screenshot_20260414_231748.png?raw=true" class="project-image" alt="Linux">
                 <div class="project-content">
                     <span class="badge bg-sysadmin">SysAdmin</span>
                     <h3>CachyOS Setup</h3>
